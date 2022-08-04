@@ -1,0 +1,68 @@
+body {
+  position: relative !important;
+}
+
+.ravioli--background {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.ravioli--modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  row-gap: 1rem;
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #FFF;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+}
+
+.ravioli--button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  width: 100%;
+}
+
+.ravioli--button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #881849;
+  border-radius: 4rem;
+  color: #FFF;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #881849;
+  width: 10rem;
+}
+
+.ravioli--button-secondary {
+  background-color: #FFF;
+  color: #000;
+  border-color: #9C9C9C;
+}
+
+.ravioli--hidden {
+  display: none;
+}
