@@ -15,8 +15,8 @@
  * Author: Ravioli
  * Author URI: https://getravioli.de
  * Text Domain: ravioli 
- * License: GPL AGPLv3
- * License URI: https://www.gnu.org/licenses/agpl-3.0.en.html */
+ * License: GNU General Public License v3.0
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html */
 
 
 // If this file is called directly, abort.
