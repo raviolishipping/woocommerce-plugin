@@ -12,6 +12,10 @@ class Ravioli_Public {
 		$this->version = $version;
 	}
 
+  public function load_ravioli_modal(){
+    include plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/ravioli_modal.php';
+  }
+
   public function ravioli_modal_script() {
     // return if not checkout page
     if (!is_checkout() || !empty( is_wc_endpoint_url('order-received'))) {
@@ -21,7 +25,8 @@ class Ravioli_Public {
     //console_log(WC()->session->get( 'ravioli_modal_shown'));
   
     // load ravioli styles
-    wp_enqueue_style('ravioli_styles', plugins_url( 'css/styles.css', __FILE__ ));
+    add_action( 'wp_body_open', 'Ravioli_Public::load_ravioli_modal' );
+    wp_enqueue_style( 'ravioli_styles', plugins_url( 'css/styles.css', __FILE__ ) );
   
     if (WC()->session->get( 'ravioli_modal_shown')) {
       return;

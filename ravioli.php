@@ -31,11 +31,14 @@ define( 'RAVIOLI_VERSION', '1.0.0' );
 require plugin_dir_path( __FILE__ ) . 'includes/class-ravioli.php';
 
 function run_ravioli() {
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+  }
 
 	$plugin = new Ravioli();
 	$plugin->run();
 
 }
-run_ravioli();
 
+add_action( 'plugins_loaded', 'run_ravioli', 10 );
 ?>

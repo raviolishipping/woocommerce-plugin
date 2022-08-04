@@ -19,16 +19,7 @@ function removeRavioli() {
   closeModal();
 }
 
-async function showModal() {
-  // get html for modal from our html file
-  const resp = await fetch(
-    `${ravioli_data.base_url}/partials/ravioli_modal.html`
-  );
-  const ravioliModal = await resp.text();
-
-  // add ravioli modal to DOM
-  document.body.insertAdjacentHTML("beforeend", ravioliModal);
-
+function showModal() {
   // set pic source
   document.getElementById(
     "ravioli--pic"
