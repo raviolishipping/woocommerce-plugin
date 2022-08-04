@@ -103,6 +103,15 @@ function ravioli_modal_script() {
     return;
   }
 
+  console_log(WC()->session->get( 'ravioli_modal_shown'));
+
+  // load ravioli styles
+  wp_enqueue_style('ravioli_styles', plugins_url( 'styles.css', __FILE__ ));
+
+  if (WC()->session->get( 'ravioli_modal_shown')) {
+    return;
+  }
+
   // get settings
   $settings_show_ravioli = get_option( 'ravioli_settings_tab_popup' );
   $settings_max_weight = get_option( 'ravioli_settings_tab_weight' );
@@ -114,8 +123,7 @@ function ravioli_modal_script() {
   // only show Ravioli modal if it's turned on in settings and total cart weight is less than max weight in settings
   if ($settings_show_ravioli == "yes" && $weight_ok) {
     $show_modal = true;
-
-    wp_enqueue_style('ravioli_styles', plugins_url( 'styles.css', __FILE__ ));
+    WC()->session->set( 'ravioli_modal_shown' , true );
     wp_enqueue_script('ravioli_modal', plugins_url( 'ravioli_modal.js', __FILE__ ), array(), false, true);
     wp_localize_script(
       'ravioli_modal',
@@ -171,6 +179,12 @@ function ravioli_add_order_metadata($order_id, $posted_data) {
   $order->update_meta_data( 'ship_with_ravioli', $add_ravioli );
   $order->save();
 }
+
+function remove_ravioli_modal_shown() {
+  WC()->session->__unset( 'ravioli_modal_shown');
+}
+
+add_action( 'woocommerce_thankyou', 'remove_ravioli_modal_shown', 10, 2 ); 
 
 //add_filter( 'query_vars', 'ravioli_query_vars' );
 
