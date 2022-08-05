@@ -44,7 +44,7 @@ class Ravioli_Admin {
         'ravioli_fee' => array(
             'name' => __( 'Ravioli fee (€)', 'ravioli_settings_tab' ),
             'type' => 'number',
-            'default' => '1',
+            'default' => 1,
             'custom_attributes' => array( 'step' => '0.01', 'min' => '0' ),
             'css' => 'width: 8ch;',
             'desc' => __( 'How much do you want to charge your customers for shipping in a Ravioli box?', 'ravioli_settings_tab' ),
@@ -53,7 +53,7 @@ class Ravioli_Admin {
         'ravioli_weight' => array(
           'name' => __( 'Maximum weight (kg)', 'ravioli_settings_tab' ),
           'type' => 'number',
-          'default' => '0',
+          'default' => 0,
           'custom_attributes' => array( 'step' => '0.01', 'min' => '0' ),
           'css' => 'width: 8ch;',
           'desc' => __( "Customer won't see the Ravioli option if the order total weight is above this (enter 0 for no limit, don't forget to set product weights)", 'ravioli_settings_tab' ),
