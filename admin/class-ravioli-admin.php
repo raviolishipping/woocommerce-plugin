@@ -56,7 +56,7 @@ class Ravioli_Admin {
           'default' => '0',
           'custom_attributes' => array( 'step' => '0.01', 'min' => '0' ),
           'css' => 'width: 8ch;',
-          'desc' => __( "Customer won't see the Ravioli option if the order total weight is above this (enter 0 for no limit)", 'ravioli_settings_tab' ),
+          'desc' => __( "Customer won't see the Ravioli option if the order total weight is above this (enter 0 for no limit, don't forget to set product weights)", 'ravioli_settings_tab' ),
           'id'   => 'ravioli_settings_tab_weight'
       ),
         'section_end' => array(

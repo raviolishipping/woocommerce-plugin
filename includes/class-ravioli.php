@@ -48,7 +48,6 @@ class Ravioli {
 		$plugin_admin = new Ravioli_Admin( $this->get_plugin_name(), $this->get_version() );
 
     $this->loader->add_action( 'woocommerce_update_options_ravioli', $plugin_admin, 'ravioli_update_settings' );
-    $this->loader->add_action( 'woocommerce_thankyou', $plugin_admin, 'remove_ravioli_modal_shown', 10, 2 ); 
     $this->loader->add_action( 'admin_menu', $plugin_admin, 'register_menu_items' );
     $this->loader->add_action( 'woocommerce_settings_tabs_ravioli', $plugin_admin, 'settings_tab' );
     $this->loader->add_filter( 'manage_edit-shop_order_columns', $plugin_admin, 'ravioli_new_order_column' );

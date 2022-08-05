@@ -30,7 +30,7 @@ Simply navigate to WooCommerce -> Settings -> Ravioli to pull up the Ravioli set
 Currently, you have three settings:
 - **Show Ravioli Popup?**: If unchecked, the Ravioli pop-up will not be displayed
 - **Ravioli fee**: Decide how much you want to charge extra if your customers choose a Ravioli box. You can also charge 0 €.
-- **Maximum weight**: Customer won't see the Ravioli option if the order total weight is above this. Enter 0 for no weight limit.
+- **Maximum weight**: Customer won't see the Ravioli option if the order total weight is above this. Enter 0 for no weight limit and make sure to set a weight for each product.
 
 ## Dependencies
 The Ravioli plugins requires WordPress > 6.0.0 and WooCommerce > 6.7.0.
