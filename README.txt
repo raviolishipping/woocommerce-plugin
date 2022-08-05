@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Ravioli for WooCommerce ===
 Contributors: canolcer
 Tags: ravioli, ecommerce, shipping
 Requires at least: 5.0
@@ -31,7 +31,7 @@ Currently, you have three settings:
 - **Maximum weight**: Customer won't see the Ravioli option if the order total weight is above this. Enter 0 for no weight limit and make sure to set a weight for each product.
 
 ## Dependencies
-The Ravioli plugins requires WordPress > 5.0.0 and WooCommerce > 6.7.0.
+The Ravioli plugins requires WooCommerce > 6.7.0.
 
 
 ## Open-source
