@@ -35,10 +35,10 @@ class Ravioli_Admin {
             'id'       => 'wc_settings_tab_ravioli_section_title'
         ),
         'ravioli_popup' => array(
-          'name' => __( 'Show Ravioli Popup?', 'ravioli_settings_tab' ),
+          'name' => __( 'Show Ravioli pop-up?', 'ravioli_settings_tab' ),
           'type' => 'checkbox',
           'default' => 'yes',
-          'desc' => __( 'Show the Ravioli popup on your checkout page', 'ravioli_settings_tab' ),
+          'desc' => __( 'Show the Ravioli pop-up on your checkout page', 'ravioli_settings_tab' ),
           'id'   => 'ravioli_settings_tab_popup'
       ),
         'ravioli_fee' => array(

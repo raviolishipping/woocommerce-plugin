@@ -10,7 +10,7 @@
  * @wordpress-plugin 
  * Plugin Name: Ravioli for WooCommerce
  * Plugin URI: https://getravioli.de
- * Description: Let your customers choose if they want to get their order shipped in a reusable Ravioli box. Works only with WooCommerce.
+ * Description: Let your customers choose if they want to get their order shipped in a reusable Ravioli box with this official Ravioli plugin. Works only with WooCommerce.
  * Version: 1.0.0
  * Author: Ravioli
  * Author URI: https://getravioli.de
