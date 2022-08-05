@@ -8,7 +8,7 @@ body {
   right: 0px;
   top: 0px;
   bottom: 0px;
-  z-index: 1000;
+  z-index: 99999;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -19,7 +19,7 @@ body {
   justify-content: start;
   align-items: center;
   row-gap: 1rem;
-  width: 600px;
+  max-width: 600px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 3rem;
@@ -29,12 +29,17 @@ body {
   font-size: 1rem;
 }
 
+.ravioli--pic {
+  border-radius: 0.5rem;;
+}
+
 .ravioli--button-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   column-gap: 2rem;
+  row-gap: 1rem;
   width: 100%;
 }
 
@@ -65,4 +70,22 @@ body {
 
 .ravioli--hidden {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .ravioli--modal {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .ravioli--button-container {
+    flex-direction: column;
+  }
+
+  .ravioli--button {
+    width: 100%;
+  }
 }

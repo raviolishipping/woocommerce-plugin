@@ -20,11 +20,6 @@ function removeRavioli() {
 }
 
 function showModal() {
-  // set pic source
-  document.getElementById(
-    "ravioli--pic"
-  ).src = `${ravioli_data.base_url}/img/ravioli_return.gif`;
-
   // set ravioli fee
   const feeFormatted = new Intl.NumberFormat(`de-DE`, {
     currency: "EUR",

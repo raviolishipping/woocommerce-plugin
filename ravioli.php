@@ -1,16 +1,16 @@
 <?php 
 /** 
- * Ravioli
+ * Ravioli for WooCommerce
  * 
- * @package Ravioli
- * @author Ravioli
+ * @package Ravioli for WooCommerce
+ * @author Ravioli for WooCommerce
  * @copyright 2022 Ravioli Logistik UG (haftungsbeschränkt) 
- * @license AGPLv3
+ * @license GPL3
  * 
  * @wordpress-plugin 
- * Plugin Name: Ravioli
+ * Plugin Name: Ravioli for WooCommerce
  * Plugin URI: https://getravioli.de
- * Description: Lets your customers choose if they want to get their order shipped in a reusable Ravioli box. 
+ * Description: Let your customers choose if they want to get their order shipped in a reusable Ravioli box. Works only with WooCommerce.
  * Version: 1.0.0
  * Author: Ravioli
  * Author URI: https://getravioli.de
