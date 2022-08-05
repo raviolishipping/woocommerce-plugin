@@ -60,7 +60,8 @@ class Ravioli {
 
 		$plugin_public = new Ravioli_Public( $this->get_plugin_name(), $this->get_version() );
 
-    $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'ravioli_modal_script' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'ravioli_enqueue_styles_and_scripts' );
+		$this->loader->add_action( 'wp_body_open', $plugin_public, 'load_ravioli_modal' );
     $this->loader->add_action( 'woocommerce_thankyou', $plugin_public, 'remove_ravioli_modal_shown', 10, 2 );
     $this->loader->add_action( 'woocommerce_cart_calculate_fees', $plugin_public, 'add_ravioli_fee', 10 , 1 );
     $this->loader->add_action( 'woocommerce_before_order_notes', $plugin_public, 'ravioli_hidden_field' );

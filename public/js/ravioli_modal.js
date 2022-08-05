@@ -1,10 +1,9 @@
 window.onload = function () {
-  if (ravioli_data.show_modal) showModal();
+  ravioliSprinkleModal();
 };
 
 function closeModal() {
   document.getElementById("ravioli--background").style.visibility = "hidden";
-  //document.body.dispatchEvent(new Event("update_checkout"));
 }
 
 function addRavioli() {
@@ -19,7 +18,7 @@ function removeRavioli() {
   closeModal();
 }
 
-function showModal() {
+function ravioliSprinkleModal() {
   // set ravioli fee
   const feeFormatted = new Intl.NumberFormat(`de-DE`, {
     currency: "EUR",

@@ -3,7 +3,7 @@
     <h3>Wiederverwendbare Verpackung</h3>
     <img src="<?php echo plugins_url( '/public/img/ravioli_return.gif', dirname(__DIR__, 1) ); ?>" class="" id="ravioli--pic"/>
     <p>
-      Erhalte deine Bestellung in einer wiederverwendbaren Ravioli Box <span id="ravioli--fee">2</span>.
+      Erhalte deine Bestellung in einer wiederverwendbaren Ravioli Box <span id="ravioli--fee">2,00 €</span>.
       Du kannst die Ravioli Box bequem und kostenlos in jedem DHL PaketShop zurückbringen.
       Gegenüber einer herkömmlichen Kartnbox hilfst du damit mit, CO2 einzusparen.
     </p>
