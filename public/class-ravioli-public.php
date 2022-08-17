@@ -5,7 +5,6 @@ class Ravioli_Public {
 
   private $version;
 
-
   public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
@@ -21,14 +20,17 @@ class Ravioli_Public {
       return false;
     }
 
-    // get settings
+    // get settings and other values
     $settings_show_ravioli = get_option( 'ravioli_settings_tab_popup' );
     $settings_max_weight = get_option( 'ravioli_settings_tab_weight' );
+    $settings_max_volume = get_option( 'ravioli_settings_tab_volume' );
     $total_cart_weight = WC()->cart->get_cart_contents_weight();
+    $total_cart_volume = $this->calculate_cart_volume(WC()->cart->get_cart());
   
     $weight_ok = empty($settings_max_weight) || $settings_max_weight == 0 || $total_cart_weight <= $settings_max_weight;
+    $volume_ok = empty($settings_max_volume) || $settings_max_volume == 0 || $total_cart_volume == 0 || $total_cart_volume <= $settings_max_volume;
 
-    return $settings_show_ravioli == "yes" && $weight_ok;
+    return $settings_show_ravioli == "yes" && $weight_ok && $volume_ok;
   }
 
   public function load_ravioli_modal(){
@@ -111,6 +113,28 @@ class Ravioli_Public {
     WC()->session->__unset( 'ravioli_modal_shown');
     WC()->session->__unset( 'add_ravioli');
     WC()->session->__unset( 'ravioli_added');
+  }
+
+  private function calculate_cart_volume($cart) {
+    // calculate total cart volume
+    $total_cart_volume = 0;
+    foreach ($cart as $cart_item) {
+      $product = wc_get_product( $cart_item["product_id"] );
+      $height = $product->get_height();
+      $width = $product->get_width();
+      $length = $product->get_length();
+
+      if ($height == 0 || empty($height) || $width == 0 || empty($width) || $length == 0 || empty($length)) {
+        // if a product's dimensions are not set, reset volume and break out, not counting the total volume limit
+        $total_cart_volume = 0;
+        break;
+      }
+
+      // calculate this products volume times quantity
+      $total_cart_volume += $height * $width * $length * $cart_item["quantity"];
+    }
+
+    return $total_cart_volume;
   }
 }
 ?>

@@ -40,25 +40,34 @@ class Ravioli_Admin {
           'default' => 'yes',
           'desc' => __( 'Show the Ravioli pop-up on your checkout page', 'ravioli_settings_tab' ),
           'id'   => 'ravioli_settings_tab_popup'
-      ),
+        ),
         'ravioli_fee' => array(
             'name' => __( 'Ravioli fee (€)', 'ravioli_settings_tab' ),
             'type' => 'number',
             'default' => 1,
             'custom_attributes' => array( 'step' => '0.01', 'min' => '0' ),
-            'css' => 'width: 8ch;',
+            'css' => 'width: 11ch;',
             'desc' => __( 'How much do you want to charge your customers for shipping in a Ravioli box?', 'ravioli_settings_tab' ),
             'id'   => 'ravioli_settings_tab_fee'
         ),
         'ravioli_weight' => array(
-          'name' => __( 'Maximum weight (kg)', 'ravioli_settings_tab' ),
+          'name' => __( 'Maximum total weight (kg)', 'ravioli_settings_tab' ),
           'type' => 'number',
           'default' => 0,
           'custom_attributes' => array( 'step' => '0.01', 'min' => '0' ),
-          'css' => 'width: 8ch;',
+          'css' => 'width: 11ch;',
           'desc' => __( "Customer won't see the Ravioli option if the order total weight is above this (enter 0 for no limit, don't forget to set product weights)", 'ravioli_settings_tab' ),
           'id'   => 'ravioli_settings_tab_weight'
-      ),
+        ),
+        'ravioli_volume' => array(
+          'name' => __( 'Maximum total volume (cm³)', 'ravioli_settings_tab' ),
+          'type' => 'number',
+          'default' => 0,
+          'custom_attributes' => array( 'step' => '0.01', 'min' => '0' ),
+          'css' => 'width: 11ch;',
+          'desc' => __( "Customer won't see the Ravioli option if the order total volume is above this (enter 0 for no limit, don't forget to set product dimensions)", 'ravioli_settings_tab' ),
+          'id'   => 'ravioli_settings_tab_volume'
+        ),
         'section_end' => array(
              'type' => 'sectionend',
              'id' => 'wc_settings_ravioli_section_end'
