@@ -62,6 +62,8 @@ class Ravioli {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'ravioli_enqueue_styles_and_scripts' );
 		$this->loader->add_action( 'wp_body_open', $plugin_public, 'load_ravioli_modal' );
+		// alternative to the wp_body_open hook for older themes that don't support it
+		$this->loader->add_action( 'wp_footer', $plugin_public, 'load_ravioli_modal' );
     $this->loader->add_action( 'woocommerce_thankyou', $plugin_public, 'remove_ravioli_modal_shown', 10, 2 );
     $this->loader->add_action( 'woocommerce_cart_calculate_fees', $plugin_public, 'add_ravioli_fee', 10 , 1 );
     $this->loader->add_action( 'woocommerce_before_order_notes', $plugin_public, 'ravioli_hidden_field' );

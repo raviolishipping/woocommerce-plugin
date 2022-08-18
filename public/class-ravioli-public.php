@@ -17,7 +17,7 @@ class Ravioli_Public {
     }
 
     if (WC()->session->get( 'ravioli_modal_shown')) {
-      return false;
+      //return false;
     }
 
     // get settings and other values
@@ -34,9 +34,15 @@ class Ravioli_Public {
   }
 
   public function load_ravioli_modal(){
+    // backwards compatibility with themes that don't support the wp_body_open hook
+    if ( doing_action( 'wp_body_open' ) ) {
+      remove_action ( 'wp_footer', 'wpdocs_my_function' );
+    }
+
     if (!$this->show_modal()) {
       return;
     }
+
     WC()->session->set( 'ravioli_modal_shown' , true );
     include plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/ravioli_modal.php';
     
@@ -77,7 +83,7 @@ class Ravioli_Public {
   
     if (WC()->session->get( 'add_ravioli' ) == "true" || WC()->session->get( 'ravioli_added' ) == 'true') {
       $ravioli_fee = get_option( 'ravioli_settings_tab_fee' );
-      $cart->add_fee( __('📦 Mehrwegversandbox (Ravioli)', 'woocommerce'), $ravioli_fee, true );
+      $cart->add_fee( __('Mehrwegversandbox (Ravioli)', 'woocommerce'), $ravioli_fee, true );
       WC()->session->set( 'ravioli_added', 'true' );
     }
   }

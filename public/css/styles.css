@@ -59,7 +59,7 @@ body {
   border-style: solid;
   border-width: 2px;
   border-color: #881849;
-  width: 10rem;
+  white-space: nowrap;
 }
 
 .ravioli--button-secondary {
