@@ -77,7 +77,7 @@ class Ravioli_Public {
   
     if (WC()->session->get( 'add_ravioli' ) == "true" || WC()->session->get( 'ravioli_added' ) == 'true') {
       $ravioli_fee = get_option( 'ravioli_settings_tab_fee' );
-      $cart->add_fee( __('📦 Wiederverwendbare Verpackung (Ravioli)', 'woocommerce'), $ravioli_fee, true );
+      $cart->add_fee( __('📦 Mehrwegversandbox (Ravioli)', 'woocommerce'), $ravioli_fee, true );
       WC()->session->set( 'ravioli_added', 'true' );
     }
   }

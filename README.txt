@@ -69,5 +69,8 @@ Glad you asked! Head over to our website [getravioli.de](https://getravioli.de) 
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Updated some texts
+
+= 1.0.0 =
 * Initial release
