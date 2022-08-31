@@ -27,6 +27,8 @@ class Ravioli_Admin {
   }
   
   public function ravioli_get_settings() {
+    $currency = get_woocommerce_currency();
+    
     $settings = array(
         'section_title' => array(
             'name'     => __( 'Ravioli Settings', 'ravioli_settings_tab' ),
@@ -42,7 +44,7 @@ class Ravioli_Admin {
           'id'   => 'ravioli_settings_tab_popup'
         ),
         'ravioli_fee' => array(
-            'name' => __( 'Ravioli fee (€)', 'ravioli_settings_tab' ),
+            'name' => __( "Ravioli fee ($currency)", 'ravioli_settings_tab' ),
             'type' => 'number',
             'default' => 1,
             'custom_attributes' => array( 'step' => '0.01', 'min' => '0' ),

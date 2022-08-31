@@ -69,6 +69,10 @@ Glad you asked! Head over to our website [getravioli.de](https://getravioli.de) 
 
 == Changelog ==
 
+= 1.0.3 =
+* Improved Ravioli fee in modal
+* Fixed double display of modal
+
 = 1.0.2 =
 * Fixed compatibiliy with themes that don't support the wp_body_open hook
 

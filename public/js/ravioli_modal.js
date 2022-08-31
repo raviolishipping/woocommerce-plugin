@@ -19,13 +19,6 @@ function removeRavioli() {
 }
 
 function ravioliSprinkleModal() {
-  // set ravioli fee
-  const feeFormatted = new Intl.NumberFormat(`de-DE`, {
-    currency: "EUR",
-    style: "currency",
-  }).format(ravioli_data.fee);
-  document.getElementById("ravioli--fee").innerText = feeFormatted;
-
   // add event listeners to yes button
   document
     .getElementById("ravioli--button-yes")

@@ -4,7 +4,7 @@
     <img src="<?php echo plugins_url( '/public/img/ravioli_return.jpeg', dirname(__DIR__, 1) ); ?>" id="ravioli--pic"/>
     <p>
       Erhalte deine Bestellung in einer nachhaltigen Mehrwegversandbox von Ravioli
-      für zusätzlich <span id="ravioli--fee">2,00 €</span>.
+      für zusätzlich <?php echo wc_price(esc_html(trim(get_option( 'ravioli_settings_tab_fee' )))) ?>.
       Du hilfst so dabei mit Müll und CO2-Emissionen zu reduzieren.
       Deine Ravioli Box kannst du anschliessend bequem und kostenlos in jedem DHL Paketshop zurückbringen.
     </p>

@@ -37,6 +37,8 @@ class Ravioli_Public {
     // backwards compatibility with themes that don't support the wp_body_open hook
     if ( doing_action( 'wp_body_open' ) ) {
       remove_action ( 'wp_footer', 'wpdocs_my_function' );
+      return;
+      
     }
 
     if (!$this->show_modal()) {
@@ -66,8 +68,7 @@ class Ravioli_Public {
       'ravioli_data',
       array(
         "base_url" => plugins_url( '', __FILE__ ),
-        "checkout_url" => wc_get_checkout_url(),
-        "fee" => esc_html(trim(get_option( 'ravioli_settings_tab_fee' )))
+        "checkout_url" => wc_get_checkout_url()
       )
     );
   }
