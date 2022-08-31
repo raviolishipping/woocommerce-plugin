@@ -17,7 +17,7 @@ class Ravioli_Admin {
     add_filter( 'woocommerce_settings_tabs_array', 'Ravioli_Admin::add_settings_tab', 50 );
   }
   
-  public function add_settings_tab( $settings_tabs ) {
+  public static function add_settings_tab( $settings_tabs ) {
     $settings_tabs['ravioli'] = __( 'Ravioli', 'ravioli' );
     return $settings_tabs;
   }
