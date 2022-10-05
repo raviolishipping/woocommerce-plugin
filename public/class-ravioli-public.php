@@ -17,7 +17,7 @@ class Ravioli_Public {
     }
 
     if (WC()->session->get( 'ravioli_modal_shown')) {
-      //return false;
+      return false;
     }
 
     // get settings and other values
@@ -126,10 +126,32 @@ class Ravioli_Public {
     // calculate total cart volume
     $total_cart_volume = 0;
     foreach ($cart as $cart_item) {
+      // initialize values
       $product = wc_get_product( $cart_item["product_id"] );
-      $height = $product->get_height();
-      $width = $product->get_width();
-      $length = $product->get_length();
+      $height = 0;
+      $width = 0;
+      $length = 0;
+
+      if ($cart_item["variation_id"] != 0) {
+        // if the product has variations, we first need to get the variation, and then get the dimensions
+        // variations take precedence (i.e. if there's a variation, its dimensions will be taken,
+        // not the general dimensions)
+        $variations = $product->get_available_variations();
+        foreach ($variations as $variation) {
+          if ( $cart_item["variation_id"] == $variation["variation_id"] ) {
+            // if variation id found, assign to dimension values and break out of loop
+            $height = $variation["dimensions"]["height"];
+            $width = $variation["dimensions"]["width"];
+            $length = $variation["dimensions"]["length"];
+            break;
+          }
+        }
+      } else {
+        // in this case, the product doesn't have variations and we can simply get the dimensions
+        $height = $product->get_height();
+        $width = $product->get_width();
+        $length = $product->get_length();
+      }
 
       if ($height == 0 || empty($height) || $width == 0 || empty($width) || $length == 0 || empty($length)) {
         // if a product's dimensions are not set, reset volume and break out, not counting the total volume limit

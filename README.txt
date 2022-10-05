@@ -69,6 +69,9 @@ Glad you asked! Head over to our website [getravioli.de](https://getravioli.de) 
 
 == Changelog ==
 
+= 1.0.4 =
+* Fixed bug that wouldn't calculate dimensions for product variants
+
 = 1.0.3 =
 * Improved Ravioli fee in modal
 * Fixed double display of modal
