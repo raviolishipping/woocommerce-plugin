@@ -11,21 +11,53 @@ class Ravioli_Public {
 		$this->version = $version;
 	}
 
+  // checks if all products in the cart contain 'exclude_from_ravioli' == 'yes'
+  private function all_products_excluded( $cart ) {
+  
+    if (!$cart) return false;
+
+    foreach ($cart as $k => $cart_item) {
+      $product = wc_get_product($cart_item['product_id']);
+      $all_meta_data = $product->get_meta_data();
+
+      // return false if no meta data
+      if (!$all_meta_data) return false;
+
+      $excluded_found = false;
+      foreach ($all_meta_data as $md) {
+        if ($md->key == Ravioli::EXCLUDE_RAVIOLI_KEY && $md->value == 'yes') {
+          // if any product is excluded from ravioli, set this to true
+          $excluded_found = true;
+        }
+      }
+      // if this product didn't have excluded_from_ravioli == yes, return false
+      if (!$excluded_found) return false;
+    }
+
+    return true;
+  }
+
+  // decide to show modal or not
   public function show_modal() {
-    if (!is_checkout() || !empty( is_wc_endpoint_url('order-received'))) {
+    if ( !is_checkout() || !empty( is_wc_endpoint_url( 'order-received' )) ) {
       return false;
     }
 
-    if (WC()->session->get( 'ravioli_modal_shown')) {
+    if (WC()->session->get( 'ravioli_modal_shown' )) {
       return false;
     }
+
+    $cart = WC()->cart->get_cart();    
+
+    // if all products have "exclude from Ravioli?" checked, don't show modal
+    if ($this->all_products_excluded($cart)) return false;
 
     // get settings and other values
     $settings_show_ravioli = get_option( 'ravioli_settings_tab_popup' );
     $settings_max_weight = get_option( 'ravioli_settings_tab_weight' );
     $settings_max_volume = get_option( 'ravioli_settings_tab_volume' );
     $total_cart_weight = WC()->cart->get_cart_contents_weight();
-    $total_cart_volume = $this->calculate_cart_volume(WC()->cart->get_cart());
+    $total_cart_volume = $this->calculate_cart_volume($cart);
   
     $weight_ok = empty($settings_max_weight) || $settings_max_weight == 0 || $total_cart_weight <= $settings_max_weight;
     $volume_ok = empty($settings_max_volume) || $settings_max_volume == 0 || $total_cart_volume == 0 || $total_cart_volume <= $settings_max_volume;

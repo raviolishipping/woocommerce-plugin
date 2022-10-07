@@ -7,6 +7,9 @@ class Ravioli {
 
   protected $version;
 
+	const EXCLUDE_RAVIOLI_KEY = 'exclude_from_ravioli';
+	const RAVIOLI_TEXT_DOMAIN = 'ravioli';
+
   public function __construct() {
 		if ( defined( 'RAVIOLI_VERSION' ) ) {
 			$this->version = RAVIOLI_VERSION;
@@ -47,6 +50,8 @@ class Ravioli {
 
 		$plugin_admin = new Ravioli_Admin( $this->get_plugin_name(), $this->get_version() );
 
+		$this->loader->add_action( 'woocommerce_product_options_advanced', $plugin_admin, 'add_exclude_from_ravioli' );
+		$this->loader->add_action( 'woocommerce_admin_process_product_object', $plugin_admin, 'action_woocommerce_admin_process_product_object', 10, 1 ); 
     $this->loader->add_action( 'woocommerce_update_options_ravioli', $plugin_admin, 'ravioli_update_settings' );
     $this->loader->add_action( 'admin_menu', $plugin_admin, 'register_menu_items' );
     $this->loader->add_action( 'woocommerce_settings_tabs_ravioli', $plugin_admin, 'settings_tab' );
