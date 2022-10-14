@@ -71,6 +71,7 @@ class Ravioli {
 		$this->loader->add_action( 'wp_footer', $plugin_public, 'load_ravioli_modal' );
     $this->loader->add_action( 'woocommerce_thankyou', $plugin_public, 'remove_ravioli_modal_shown', 10, 2 );
     $this->loader->add_action( 'woocommerce_cart_calculate_fees', $plugin_public, 'add_ravioli_fee', 10 , 1 );
+		$this->loader->add_filter( 'esc_html', $plugin_public, 'show_remove_button_for_fee', 10, 2 );
     $this->loader->add_action( 'woocommerce_before_order_notes', $plugin_public, 'ravioli_hidden_field' );
     $this->loader->add_action( 'woocommerce_checkout_update_order_review', $plugin_public, 'ravioli_update_session' );
     $this->loader->add_action( 'woocommerce_checkout_update_order_meta', $plugin_public, 'ravioli_add_order_metadata', 20, 2 );

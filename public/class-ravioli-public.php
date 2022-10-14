@@ -5,6 +5,8 @@ class Ravioli_Public {
 
   private $version;
 
+  const RAVIOLI_FEE_TEXT = 'Mehrwegversandbox (Ravioli)';
+
   public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
@@ -89,14 +91,14 @@ class Ravioli_Public {
 
     wp_enqueue_style( 'ravioli_styles', plugins_url( 'css/styles.css', __FILE__ ) );
 
+    wp_enqueue_script( 'ravioli_modal', plugins_url( 'js/ravioli.js', __FILE__ ), array(), false, true );
+
     if (!$this->show_modal()) {
       return;
     }
 
-    wp_enqueue_script( 'ravioli_modal', plugins_url( 'js/ravioli_modal.js', __FILE__ ), array(), false, true );
-
     wp_localize_script(
-      'ravioli_modal',
+      'ravioli',
       'ravioli_data',
       array(
         "base_url" => plugins_url( '', __FILE__ ),
@@ -114,21 +116,28 @@ class Ravioli_Public {
       return;
     }
   
-    if (WC()->session->get( 'add_ravioli' ) == "true" || WC()->session->get( 'ravioli_added' ) == 'true') {
+    if (WC()->session->get( 'add_ravioli' ) == 'true') {
       $ravioli_fee = get_option( 'ravioli_settings_tab_fee' );
-      $cart->add_fee( __('Mehrwegversandbox (Ravioli)', 'woocommerce'), $ravioli_fee, true );
-      WC()->session->set( 'ravioli_added', 'true' );
+      $cart->add_fee( __(Ravioli_Public::RAVIOLI_FEE_TEXT, Ravioli::RAVIOLI_TEXT_DOMAIN), $ravioli_fee, true );
     }
   }
+
+  public function show_remove_button_for_fee( $safe_text, $text ){
+    // we need to add the HTML separately, otherwise it's escaped
+    if( ( is_checkout() ) && $text == Ravioli_Public::RAVIOLI_FEE_TEXT ){
+      $safe_text = $safe_text.'<a href="#" class="ravioli--button-tertiary" id="ravioli-remove-checkout">Entfernen</a>';
+    }
+    return $safe_text;
+  }
   
-  public function ravioli_hidden_field($checkout) { 
+  public function ravioli_hidden_field($checkout) {
     woocommerce_form_field( 'add_ravioli', array(        
        'type' => 'text',        
        'id' => 'ravioli--add_ravioli_field',
        'class' => array('ravioli--hidden' ),        
        'label' => 'add_ravioli',
-       'required' => false,        
-       'default' => 'false',        
+       'required' => false,
+       'default' => WC()->session->get( 'add_ravioli' ) == 'true' ? 'true' : 'false',        
     )); 
   }
   

@@ -3,7 +3,7 @@ Contributors: canolcer
 Tags: ravioli, ecommerce, shipping
 Requires at least: 5.0
 Tested up to: 6.0.1
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -68,6 +68,9 @@ Glad you asked! Head over to our website [getravioli.de](https://getravioli.de) 
 
 
 == Changelog ==
+
+= 1.2.0 =
+* Added remove Ravioli button to checkout page
 
 = 1.1.0 =
 * Added setting per product to exclude from Ravioli

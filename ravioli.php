@@ -10,7 +10,7 @@
  * @wordpress-plugin 
  * Plugin Name: Ravioli for WooCommerce
  * Description: Let your customers choose if they want to get their order shipped in a reusable Ravioli box with this official Ravioli plugin. Works only with WooCommerce.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: Ravioli
  * Author URI: https://getravioli.de
  * Text Domain: ravioli 
@@ -24,7 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 
-define( 'RAVIOLI_VERSION', '1.1.0' );
+define( 'RAVIOLI_VERSION', '1.2.0' );
 
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-ravioli.php';
