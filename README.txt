@@ -13,14 +13,14 @@ Let your customers choose if they want to get their order shipped in a reusable 
 == Description ==
 
 This is the official Ravioli plugin for WooCommerce. If you're a [Ravioli](https://getravioli.de) customer and use WooCommerce
-to run your online shop, we recommend to use this plugin. Once activated, it asks your customers
+to run your online shop, we recommend you to use this plugin. Once activated, it asks your customers
 during checkout if they want to get their order shipped in a reusable Ravioli box.
 
 ## Usage and customization
 
 Once activated, the plugin works right away without any setup needed. The Ravioli plugin
 asks your customers during checkout if they want to get their order shipped in a reusable Ravioli box.
-If a customer chooses Ravioli, a small fee is added to their checkout total.
+If a customer chooses Ravioli, a small fee (set by you) is added to their checkout total.
 
 In your WordPress admin area, you can customize the Ravioli experience for your customers.
 Simply navigate to WooCommerce -> Settings -> Ravioli to pull up the Ravioli settings.
@@ -29,6 +29,12 @@ Currently, you have three settings:
 - **Show Ravioli Popup?**: If unchecked, the Ravioli pop-up will not be displayed
 - **Ravioli fee**: Decide how much you want to charge extra if your customers choose a Ravioli box. You can also charge 0 €.
 - **Maximum weight**: Customer won't see the Ravioli option if the order total weight is above this. Enter 0 for no weight limit and make sure to set a weight for each product.
+
+Additionally, you can exclude single products from triggering the Ravioli pop-up.
+To do this, go to the product's edit page, click on "Advanced" in the Product data tab, and then check
+"Exclude from Ravioli?". A customer who has only excluded products in their cart won't see the Ravioli pop-up.
+However, if they have for example one excluded and one not-excluded product, they will see the Ravioli pop-up
+(as long as another setting doesn't prevent it from showing).
 
 ## Dependencies
 The Ravioli plugins requires WooCommerce > 6.7.0.
@@ -40,7 +46,7 @@ This plugin is open-source and you can view the source code on our [GitHub repos
 ## About Ravioli
 Ravioli makes using reusable shipping boxes as convenient as cardboard boxes for ecommerce shops.
 After you ship your products in a Ravioli box, we take care of getting back the empty boxes and
-preparing for their next adventure.
+preparing it for its next adventure.
 
 By replacing cardboard boxes with reusable boxes, ecommerce shops can cut down their CO2 emissions use of resources.
 
@@ -52,10 +58,10 @@ Ravioli is currently available in Germany. Learn more on [getravioli.de](https:/
 = What are Ravioli boxes? =
 
 Ravioli boxes are reusable shipping boxes sold by Ravioli Logistik UG (haftungsbeschränkt).
-If you have an ecommerce shop, you use Ravioli boxes to send your products. Your customers then
-drop off the empty box at a DHL point after unpacking the products and is sent back to us.
-We clean and prepare the box for it's next trip and make it easy for any ecommerce shop to adopt
-reusable shippingg boxes.
+If you have an e-commerce shop, you can use Ravioli boxes to send your products. Your customers then
+drop off the empty box at a DHL point after unpacking the products and is send back to us.
+We clean and prepare the box for its next trip and make it easy for any e-commerce shop to offer
+reusable shipping boxes.
 
 = Do I need to be a Ravioli customer to use the plugin? =
 
